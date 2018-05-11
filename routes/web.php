@@ -9,10 +9,14 @@
 | It is a breeze. Simply tell Lumen the URIs it should respond to
 | and give it the Closure to call when that URI is requested.
 |
-*/
+ */
 
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('crawler', 'CrawlerController@update');
+$router->group(['prefix' => 'v1'], function ($router) {
+    $router->get('update', 'CrawlerController@update');
+    $router->get('animal', 'AnimalsController@all');
+    $router->get('animal/{id}', 'AnimalsController@get');
+});

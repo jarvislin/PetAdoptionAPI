@@ -13,7 +13,7 @@ class CrawlerController extends Controller
         $this->removeOldData();
     }
 
-    public function updateOpendata()
+    public function updateData()
     {
         $skip = 0;
         do {
