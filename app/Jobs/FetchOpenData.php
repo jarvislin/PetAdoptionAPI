@@ -1,17 +1,33 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Jobs;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Bus\Queueable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
 use Carbon\Carbon;
 
-class CrawlerController extends Controller
+class FetchOpenData implements ShouldQueue
 {
-    public function update()
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    /**
+     * 任務運行的超時時間。
+     *
+     * @var int
+     */
+    public $timeout = 900;
+
+    /**
+     * 運行任務。
+     * @return void
+     */
+    public function handle()
     {
-        // $this->updateData();
-        // $this->removeOldData();
-        FetchOpenData::dispatch();
+        $this->updateData();
+        $this->removeOldData();
     }
 
     public function updateData()
