@@ -12,7 +12,7 @@ class CrawlerController extends Controller
     {
         // $this->updateData();
         // $this->removeOldData();
-        FetchOpenData::dispatch();
+        dispatch(new FetchOpenData);
     }
 
     public function updateData()
