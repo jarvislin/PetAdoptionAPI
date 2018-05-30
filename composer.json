@@ -6,7 +6,6 @@
     "type": "project",
     "require": {
         "php": ">=7.0",
-        "ext-memcached": "*",
         "laravel/lumen-framework": "5.5.*",
         "nesbot/carbon": "^1.27",
         "vlucas/phpdotenv": "~2.2",
