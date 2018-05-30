@@ -2,16 +2,10 @@
 
 namespace App\Jobs;
 
-use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
 use Carbon\Carbon;
 
-class FetchOpenData implements ShouldQueue
+class FetchOpenData extends Job
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
      * 任務運行的超時時間。
