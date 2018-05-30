@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-use App\Jobs;
+use App\Jobs\FetchOpenData;
 
 class CrawlerController extends Controller
 {
